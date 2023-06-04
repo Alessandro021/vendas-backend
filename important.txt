@@ -1,0 +1,2 @@
+comando mara iniciar um modulo no nest = nest g module [nome do modulo ex: user]
+comando mara iniciar um contoler no nest = nest g controller [nome do modulo ex: user]

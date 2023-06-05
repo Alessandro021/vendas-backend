@@ -1,2 +1,7 @@
 comando mara iniciar um modulo no nest = nest g module [nome do modulo ex: user]
 comando mara iniciar um contoler no nest = nest g controller [nome do modulo ex: user]
+comando mara iniciar um service no nest = nest g service [nome do modulo ex: user]
+
+comando para criar uma migration: npx typeorm migration:create ./src/migration/create_table_user
+comando para criar um controller: nest g controller state
+comando para criar um service no nest: nest g service state

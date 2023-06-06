@@ -1,4 +1,4 @@
-import { Injectable, NotAcceptableException } from '@nestjs/common';
+import { Injectable, NotFoundException } from '@nestjs/common';
 import { CityEntity } from './entities/city.entity';
 import { Repository } from 'typeorm';
 import { InjectRepository } from '@nestjs/typeorm';
@@ -31,7 +31,7 @@ export class CityService {
         })
 
         if(!city){
-            throw new NotAcceptableException(`Codigo: ${cityId} Não Existe`)
+            throw new NotFoundException(`Codigo: ${cityId} Não Existe`)
         }
 
         return city;

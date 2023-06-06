@@ -1,4 +1,4 @@
-import { Injectable } from '@nestjs/common';
+import { Injectable, NotFoundException } from '@nestjs/common';
 import { hash } from 'bcrypt';
 import { InjectRepository} from "@nestjs/typeorm"
 import {Repository} from "typeorm"
@@ -27,5 +27,17 @@ export class UserService {
 
     async getAllUser(): Promise<UserEntity[]>{
         return this.userRepository.find()
+    }
+
+    async findUserById(userId: number): Promise<UserEntity>{
+        const user = await this.userRepository.findOne({
+            where: {id: userId}
+        })
+
+        if(!user){
+            throw new NotFoundException(`Usuario: ${userId} Não Encontrado.`)
+        }
+
+        return user;
     }
 }
